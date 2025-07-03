@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 여러문서 프로젝트 작업을 하더라도 공통적으로 적용을 할 CSS의 내용 작성한 파일 */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+input,
+button {
+    vertical-align: top;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -1,0 +1,963 @@
+@charset "UTF-8";
+
+/* 
+    헤더,본문1, 2, 3, 7 css분석표 제출 
+    
+    문법의미:
+    사용이유/목적/결과:
+
+    혹 사용이유/목적/결과가 안나오는경우-> 모르는경우 질문에 대해 따로 정리해서 전달.
+
+    6/3까지 
+    메일제목 : css분석
+    jinmi82@naver.com 에 제출.
+*/
+/* 
+    문법의미:
+    사용이유/목적/결과: 
+*/
+
+#wrapper {
+    position: relative;
+    min-width: 1440px;
+    /* 
+        - 본문의 안전사이즈 : 1440px
+        - Wrapper의 기본너비값은 body태그의 너비값에 의해 정해짐.
+        - body태그의 너비값은 브라우저 폭에 의해 정해짐.
+        - 브라우저가 좁아질 경우, Wrapper의 폭도 좁아지면서 컨텐츠의 정렬, 배경색, 테두리 등에 영향을 끼침.
+        - 최소 너비값을 지정해두면 브라우저 폭이 줄어들더라도 Wrapper의 너비값이 고정됨.
+        - 브라우저 폭이 늘어날때는 Wrapper의 너비도 같이 늘어남.
+    */
+}
+
+/* TopBanner */
+
+#topBanner {
+    position: absolute;
+    height: 40px;
+    background-color: #002053;
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+    z-index: 100;
+}
+
+#topBanner .content a {
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 40px;
+}
+
+#topBanner .btnClose {
+    position: absolute;
+    top: 4px;
+    right: 40px;
+}
+#topBanner .btnClose button {
+    width: 32px;
+    height: 32px;
+    /* 
+        공간은 그대로, 글자 내용만 화면의 다른 곳으로 이동됨.
+        >> 왼쪽으로 이동 / + 오른쪽으로 이동 
+        값을 크게 만들어 어떤 크기의 화면에서도 보이지 않도록 만듬.
+    */
+    background-color: transparent;
+    border: 0;
+    background-image: url(../img/btn_x_wh_32x32.png);
+}
+
+/* Header */
+#header {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 40px;
+    /* 
+        box-sizing 은 width속성의 범위 기준을 결정하는 속성.
+
+        {box-sizing : content-box;}
+        width값의 범위가 여백과 테두리를 제외하고 실제 내용이 처리될 수 있는 공간을 가리킴
+
+        {box-sizing : border-box;}
+        width값의 범위가 테두리 끝에서 끝까지로 인식됨.
+        너비값으로 지정된 범위 안에서 테두리와 여백이 표현되고, 컨텐츠는 테두리와 여백이 표현된 나머지 영역에 맞춰 작성됨.
+    */
+}
+
+#header .logo {
+    background-color: transparent;
+    background-image: url(../img/logo_wh.png);
+    width: 100px;
+    height: 32px;
+}
+
+#header .gnb {
+    display: flex;
+}
+
+#header .gnb ul {
+    display: flex;
+    gap: 32px;
+}
+
+#header .gnb ul:first-child::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 12px;
+    margin-top: 7px;
+    margin-right: 32px;
+    background-color: white;
+    /* 
+        화면을 장식하는 요소를 위해 html에 태그를 만들 수 있지만,
+        html 입장에서보면 의미없는 태그가 만들어지는 것과 가음.
+        이때는 css에서 가상태그를 활용하면 됨.
+        각 블럭요소 태그는 2개의 가상태그를 가질 수 있음.
+        선택자::before -> 선택자의 첫째 자식요소로 인식되는 가상태그
+        선택자::after -> 선택자의 막내 자식요소로 인식되는 가상태그
+
+        가상태그를 사용하기 위해서는 content속성이 필수로 있어야함.
+        여기서는 공간만 필요한 상태니 content속성의 값을 공백처리함.
+
+        가상태그는 inline요소의 성질을 가짐.
+        공간을 처리하기위해 태그 성질을 block으로 처리해야함.
+        (여기서는 display속성을 지워도 공간을 표시해줌 -> flex의 영향때문)
+    */
+}
+
+#header .gnb ul li a {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 27px;
+}
+
+#header .icons ul {
+    display: flex;
+}
+
+#header .icons ul li a,
+#header .icons ul li button {
+    width: 56px;
+    height: 56px;
+    display: block;
+    text-indent: -99999px;
+    border: 0;
+    background-color: transparent;
+}
+
+#header .icons ul .location a {
+    background-image: url(../img/ico-store-wh-56x56.png);
+}
+
+#header .icons ul .search button {
+    background-image: url(../img/ico-search-wh-56x56.png);
+}
+
+#header .icons ul .login a {
+    background-image: url(../img/ico-mypage-wh-56x56.png);
+}
+
+#header .icons ul .cart a {
+    background-image: url(../img/ico-cart-wh-56x56.png);
+}
+
+#header .icons ul .cart {
+    position: relative;
+}
+
+#header .icons ul .cart .cartCount {
+    background-color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* mainHero */
+#container > div {
+    margin-bottom: 160px !important;
+}
+
+#container .mainHero {
+    height: 1080px;
+    width: 100%;
+    min-width: 1440px;
+    position: relative;
+}
+
+#container .mainHero .mainSlide .slide {
+    position: relative;
+    overflow: hidden;
+}
+#container .mainHero .mainSlide .slide .slideImg {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1440px;
+}
+
+#container .mainHero .mainSlide .slide .slideImg img {
+    margin-left: -240px;
+}
+
+#container .mainHero .mainSlide .slide .slideText {
+    z-index: 100;
+    position: absolute;
+    left: 50%;
+    margin-left: -720px;
+    bottom: 169px;
+}
+
+#container .mainHero .mainSlide .slide .slideText .slideTitle {
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 72px;
+    margin-bottom: 9px;
+    font-weight: 700;
+}
+
+#container .mainHero .mainSlide .slide .slideText a {
+    color: #ffffff;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    display: block;
+    line-height: 50px;
+    width: 160px;
+    border-radius: 25px;
+}
+
+#container .mainHero .mainSlideController {
+    position: absolute;
+    left: 50%;
+    margin-left: -720px;
+    bottom: 80px;
+    width: 85%;
+    display: flex;
+}
+
+#container .mainHero .mainSlideController .mainPager {
+    /* 
+        플랙스 아이템의 너비값을 플렉시블(유연한)하게 만들어줌.
+
+        현재 오른쪽에 배치된 이전/다음버튼의 너비값과 버튼 사이의 간격값이 px로 정해진 값이 있음.
+        flex:1 값을 적용 > 부모태그의 너비값에서 오른쪽의 고정값을 제외한 나머지를 자신의 너비값으로 사용하도록 만들 수 있음.
+    */
+    display: flex;
+    flex: 1;
+    margin-right: 23px;
+}
+
+#container .mainHero .mainSlideController ul {
+    display: flex;
+    width: 100%;
+}
+
+#container .mainHero .mainSlideController ul li {
+    line-height: 40px;
+    width: 100%;
+}
+
+#container .mainHero .mainSlideController ul li button {
+    text-indent: -99999px;
+    width: 100%;
+    height: 40px;
+}
+
+#container .mainHero .mainSlideController ul li button span {
+    display: block;
+    height: 2px;
+    background-color: #ffffff;
+    opacity: 0.2;
+}
+
+#container .mainHero .mainSlideController ul li .active {
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+#container .mainHero .mainSlideController .btnPrev button,
+#container .mainHero .mainSlideController .btnNext button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-indent: -99999px;
+    margin-right: 2px;
+}
+
+#container .mainHero .mainSlideController .btnPrev button {
+    background-image: url(../img/btn_prev_wh_40x40.png);
+}
+
+#container .mainHero .mainSlideController .btnNext button {
+    background-image: url(../img/btn_next_wh_40x40.png);
+}
+
+/* 공통사용 */
+.titleText {
+    font-size: 36px;
+    line-height: 54px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.btnMore a {
+    display: block;
+    width: 120px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #121212;
+    text-align: center;
+    border: 2px solid #dddddd;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+/* 지금 많이 찾는 상품 */
+#container .itemListWrap {
+    margin-bottom: 160px;
+    width: 1440px;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container .itemListWrap .titleText {
+    margin-bottom: 20px;
+}
+#container .itemListWrap .hashTabBtn {
+    width: 62%;
+    margin-bottom: 40px;
+}
+
+#container .itemListWrap .hashTabBtn ul {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#container .itemListWrap .hashTabBtn ul li button {
+    /* 
+        버튼태그의 박스모델은 box-sizing:border-box로 지정되어 있음.
+    */
+    font-size: 18px;
+    height: 37px;
+    line-height: 27px;
+    text-align: center;
+}
+
+#container .itemListWrap .hashTabBtn ul li .tabBtnActive {
+    font-weight: 700;
+    border-bottom: 2px solid #121212;
+    color: #121212;
+}
+
+#container .itemListWrap .itemList ul {
+    display: flex;
+    gap: 20px;
+}
+
+#container .itemListWrap .itemList ul li div {
+    position: relative;
+}
+
+#container .itemListWrap .itemList ul li div a div img {
+    width: 345px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+#container .itemListWrap .itemList ul li div a .itemKind {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 4px;
+    color: #000000;
+}
+
+#container .itemListWrap .itemList ul li div a .itemName {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+#container .itemListWrap .itemList ul li div a .itemPrice {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+#container .itemListWrap .itemList ul li div button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 52px;
+    background-image: url(../img/ico-heart-gr-52x52.png);
+    text-indent: -999999px;
+    z-index: 10;
+}
+
+/* 기획전 */
+#container .special {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container .special .specialContent ul {
+    display: flex;
+    gap: 24px;
+}
+
+#container .special .specialContent ul li {
+    width: 464px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#container .special .specialContent ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container .special .specialContent ul li a .exhibitionImage {
+    margin-bottom: 32px;
+}
+
+#container .special .specialContent ul li a .exhibitionTitle {
+    font-size: 18px;
+    line-height: 27px;
+    color: #121212;
+    margin-bottom: 8px;
+}
+
+#container .special .specialContent ul li a .exhibitionText {
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+    margin-bottom: 24px;
+}
+
+#container .special .specialContent ul li div img {
+    width: 100%;
+    height: auto;
+}
+
+#container .special .specialContent ul li .exhibitionView {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    margin-left: -80px;
+    display: block;
+    width: 158px;
+    height: 38px;
+    line-height: 38px;
+    font: 14px;
+    text-align: center;
+    color: #121212;
+    background-color: #ffffff;
+    border: 2px solid #dddddd;
+    border-radius: 20px;
+}
+
+#container .special .specialContent ul li .exhibitionView:hover {
+    background-color: rgb(14, 34, 87);
+    color: #dddddd;
+}
+
+/* 추천스타일 */
+#container .styleListWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#container .styleListWrap .styleList {
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+#container .styleListWrap .styleList ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    width: 3340px;
+    padding: 0 20px;
+}
+
+#container .styleListWrap .styleList ul li {
+    width: 400px;
+}
+
+#container .styleListWrap .styleList ul li div a img {
+    width: 100%;
+    height: auto;
+}
+
+/* 커뮤니티 */
+#container .communityWrap {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+#container .communityWrap .community {
+    margin-bottom: 60px;
+}
+
+#container .communityWrap .community ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#container .communityWrap .community ul li {
+    width: 464px;
+}
+
+#container .communityWrap .community ul li a .communityImage {
+    margin-bottom: 24px;
+}
+
+#container .communityWrap .community ul li a .communityImage img {
+    width: 100%;
+    height: auto;
+}
+
+#container .communityWrap .community ul li a .communityCategory {
+    font-size: 14px;
+    line-height: 21px;
+    color: #121212;
+    margin-bottom: 4px;
+}
+
+#container .communityWrap .community ul li a .communityTitle {
+    font-size: 18px;
+    line-height: 27px;
+    color: #121212;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#container .communityWrap .community ul li a .communityText {
+    font-size: 16px;
+    line-height: 24px;
+    color: #999999;
+    margin-bottom: 20px;
+}
+
+/* main6 */
+#container .recommendItem {
+    margin: 0 auto;
+}
+
+#container .recommendItem .recommendList {
+    margin-bottom: 60px;
+}
+
+#container .recommendItem .recommendList ul {
+    display: flex;
+    gap: 20px;
+}
+
+#container .recommendItem .recommendList ul li {
+    width: 100%;
+    position: relative;
+}
+
+#container .recommendItem .recommendList ul li a .itemImage {
+    width: 100%;
+    margin-bottom: 12px;
+}
+#container .recommendItem .recommendList ul li a .itemImage img {
+    width: 100%;
+    height: auto;
+}
+
+#container .recommendItem .recommendList ul li a .itemCategory {
+    font-size: 14px;
+    line-height: 21px;
+    color: #121212;
+    margin-bottom: 4px;
+}
+
+#container .recommendItem .recommendList ul li a .itemName {
+    font-size: 18px;
+    line-height: 27px;
+    color: #121212;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#container .recommendItem .recommendList ul li a .itemPrice {
+    font-size: 16px;
+    line-height: 24px;
+    color: #121212;
+}
+
+#container .recommendItem .recommendList ul li .itemLike {
+    text-indent: -99999px;
+    background-image: url(../img/ico-heart-gr-52x52.png);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 52px;
+    z-index: 10;
+}
+
+/* main7 */
+#container .filainsta {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+#container .filainsta .instaInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+#container .filainsta .instaInfo .iconInsta {
+    background-image: url(../img/ico-instar-32x32.png);
+    text-indent: -99999px;
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+}
+
+#container .filainsta .instaInfo .instaID a {
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 700;
+    color: #121212;
+}
+
+#container .filainsta .instaImageList ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#container .filainsta .instaImageList ul li {
+    width: 280px;
+}
+
+#container .filainsta .instaImageList ul li a img {
+    width: 100%;
+    height: auto;
+}
+
+/* footer */
+#footer {
+    height: 500px;
+    background-color: #eeeeee;
+    position: relative;
+    padding-top: 24px;
+}
+
+#footer .footerHeader {
+    position: absolute;
+    top: 24px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer .footerHeader .footerLogo {
+    background-image: url(../img/logo_nv.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 27px;
+    text-indent: -99999px;
+}
+
+#footer .footerHeader .footerIcons ul {
+    display: flex;
+}
+
+#footer .footerIcons ul li {
+    height: 52px;
+    width: auto;
+}
+
+#footer .footerIcons ul li a {
+    display: block;
+    text-indent: -99999px;
+    height: 52px;
+    background-size: contain;
+}
+
+#footer .footerIcons ul .instarIcon a {
+    background-image: url(../img/sns-instar-52x52.png);
+    width: 52px;
+}
+
+#footer .footerIcons ul .facebookIcon a {
+    background-image: url(../img/sns-facebook-40x52.png);
+    width: 40px;
+}
+
+#footer .footerIcons ul .youtubeIcon a {
+    background-image: url(../img/sns-youtube-54x52.png);
+    width: 54px;
+}
+
+#footer .footerIcons ul .kakaoIcon a {
+    background-image: url(../img/sns-kakao-52x52.png);
+    width: 52px;
+}
+
+#footer .footerContents {
+    position: relative;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+#footer .footerContents .footerCompanyInfo .footerCompanyName {
+    margin-bottom: 60px;
+}
+
+#footer .footerContents .footerCompanyInfo .footerCompanyName a {
+    font-size: 16px;
+    line-height: 52px;
+    color: #121212;
+}
+
+#footer .footerContents .footerCompanyInfo .fCompanyInfoH {
+    font-size: 14px;
+    line-height: 21px;
+    color: #121212;
+    margin-bottom: 40px;
+}
+
+#footer .footerContents .footerCompanyInfo .fCompanyInfoH ul {
+    display: flex;
+}
+
+#footer .footerContents .footerCompanyInfo .fCompanyInfoH ul li a {
+    color: #121212;
+}
+#footer .footerContents .footerCompanyInfo .fCompanyInfoH ul li a::after {
+    content: "";
+    border: 1px solid rgba(12, 12, 12, 20%);
+    margin: 0 20px;
+    width: 1px;
+    height: 12px;
+}
+
+#footer
+    .footerContents
+    .footerCompanyInfo
+    .fCompanyInfoH
+    ul
+    li:last-child
+    a::after {
+    content: "";
+    border: 0;
+}
+
+#footer .footerContents .footerCompanyInfo .footerCompanyName .fCompanyInfoV {
+    font-size: 14px;
+    line-height: 26px;
+    color: #121212;
+    margin-bottom: 40px;
+}
+
+#footer .fHeader {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 24px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+#footer .fHeader .fLogo {
+    margin-right: 120px;
+}
+
+#footer .fHeader .fLogo a {
+    display: block;
+    background-image: url(../img/logo_nv.png);
+    background-size: 80px 27px;
+    width: 80px;
+    height: 27px;
+    text-indent: -99999px;
+}
+
+#footer .fHeader .fCompany {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+#footer .fHeader .snsIcons ul {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+}
+
+#footer .fContents {
+    margin-top: 0;
+    margin-bottom: 80px;
+    margin-left: 240px;
+    margin-right: 240px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer .fContents .fCompanyInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 14px;
+    color: rgb(12, 12, 12, 50%);
+}
+
+#footer .fContents .fcompanyinfoV {
+    display: flex;
+    flex-direction: column;
+    line-height: 26px;
+}
+
+.fCompanyInfoV .spaceSpan {
+    margin-right: 16px;
+}
+
+#footer .fContents .fCompanyInfoH {
+    display: flex;
+    gap: 20px;
+}
+
+#footer .fContents .fCompanyInfoH li {
+    display: flex;
+    align-items: center;
+}
+#footer .fContents .fCompanyInfoH li::after {
+    content: "";
+    display: block;
+    border: 1px solid rgba(12, 12, 12, 30%);
+    height: 12px;
+    margin-left: 20px;
+}
+#footer .fContents .fCompanyInfoH li:last-child::after {
+    content: "";
+    display: none;
+}
+
+#footer .fContents .fCompanyInfoH li a {
+    color: rgb(12, 12, 12);
+}
+
+#footer .fContents .fCompanyInfo ul .fActive {
+    font-weight: 700;
+}
+
+.fUnder {
+    text-decoration: solid 1px underline;
+    text-decoration-color: rgba(12, 12, 12, 30%);
+}
+
+.fUnder a {
+    color: rgba(12, 12, 12, 50%);
+    margin-left: 10px;
+}
+.fBold {
+    font-weight: 700;
+}
+
+#footer .fCenterInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#footer .fCenterInfo .fCenterName {
+    width: 118px;
+    height: 28px;
+    border: 2px solid #121212;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+#footer .fCenterInfo .fCenterContact {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #121212;
+    margin-bottom: 12px;
+}
+
+#footer .fCenterInfo .fCenterTime {
+    font-size: 14px;
+    line-height: 21px;
+    color: rgba(12, 12, 12, 40%);
+    margin-bottom: 40px;
+}
+
+#footer .fCenterInfo .fCenterLink {
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer .fCenterInfo .fCenterLink .nation {
+    display: flex;
+    width: 75px;
+    font-size: 14px;
+    line-height: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer .fCenterInfo .fCenterLink .nation .nationImage {
+    display: flex;
+    align-items: center;
+}
+
+#footer .fCenterInfo .fCenterLink .siteLink .siteBtn {
+    display: flex;
+    gap: 54px;
+    align-items: center;
+}
+
+#footer .fCenterInfo .fCenterLink .siteLink .siteBtn img {
+    width: 24px;
+    height: 24px;
+}
